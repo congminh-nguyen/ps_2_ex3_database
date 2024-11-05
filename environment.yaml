@@ -1,0 +1,14 @@
+name: nba
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - polars
+  - pandas
+  - duckdb
+  - kaggle
+  - sqlite
+  - seaborn
+  - pre-commit
+  - ipykernel
+  - click

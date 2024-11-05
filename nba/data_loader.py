@@ -1,3 +1,7 @@
+# The click package enables command-line interface functionality
+# by using decorators to define commands and options.
+# It parses command-line arguments and passes them to
+# the corresponding functions, making it easy to create CLI tools.
 import kaggle
 import os
 import json
@@ -49,19 +53,24 @@ def kaggle_download_data(dataset: str) -> None:
     print(f"Data has been downloaded to {data_path}")
 
 
+# This decorator turns the function into
+# a Click command-line interface (CLI) command.
 @click.command()  # type: ignore
+# This decorator defines a command-line option for the CLI command.
 @click.option(  # type: ignore
     "--dataset",
     "-d",
     required=True,
     help='Kaggle dataset identifier (e.g., "username/dataset-name")',
 )
+# This decorator defines a command-line option for the CLI command.
 @click.option(  # type: ignore
     "--user-name",
     "-u",
     required=False,
     help="Your Kaggle username",
 )
+# This decorator defines a command-line option for the CLI command.
 @click.option(
     "--api-key", "-k", required=False, help="Your Kaggle API key"
 )  # type: ignore
@@ -74,5 +83,7 @@ def main(
     kaggle_download_data(dataset=dataset)
 
 
+# This code block calls the main function
+# to execute the script when it is run directly.
 if __name__ == "__main__":
     main()
